@@ -1,39 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Hakadosh Ministry</title>
+  <title>Hakadosh Ministry</title>
+  <meta
+    name="description"
+    content="Hakadosh Ministry — a place for faith, wisdom, truth, and spiritual growth."
+  />
 
-<style>
-body{
-font-family: Arial, sans-serif;
-background:#111;
-color:white;
-text-align:center;
-padding-top:120px;
-}
+  <meta property="og:title" content="Hakadosh Ministry" />
+  <meta
+    property="og:description"
+    content="A place for faith, wisdom, truth, and spiritual growth."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.hakadoshministry.com/" />
 
-h1{
-font-size:3rem;
-}
+  <link rel="icon" href="favicon.png" />
 
-p{
-font-size:1.2rem;
-opacity:0.8;
-}
-</style>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --bg-soft: #12161b;
+      --text: #f5f7fa;
+      --muted: #b7c0cc;
+      --line: rgba(255,255,255,0.10);
+      --accent: #d7dde6;
+      --max-width: 1100px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0b0d10 0%, #11161c 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 13, 16, 0.75);
+      border-bottom: 1px solid var(--line);
+      z-index: 100;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .brand img {
+      height: 42px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+    }
+
+    .hero-logo {
+      margin: 0 auto 24px;
+      max-width: 380px;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: 0.03em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .button {
+      border: 1px solid var(--line);
+      padding: 12px 18px;
+      border-radius: 999px;
+      display: inline-block;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #111;
+      border-color: transparent;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .quote-box,
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .quote-box {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .quote-box p {
+      font-size: 1.15rem;
+      margin: 0 0 10px;
+    }
+
+    .quote-box span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about-text {
+      max-width: 850px;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      max-width: 720px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .brand img {
+        height: 36px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="hakadosh-logo-horizontal.png" alt="Hakadosh logo" />
+        <span>HAKADOSH</span>
+      </div>
 
-<h1>Hakadosh Ministry</h1>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#teachings">Teachings</a>
+        <a href="#scripture">Scripture</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<p>Welcome to the official website.</p>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <img
+          class="hero-logo"
+          src="hakadosh-logo-horizontal.png"
+          alt="Hakadosh Ministry logo"
+        />
 
+        <h1>Hakadosh Ministry</h1>
+        <p>
+          A place for faith, truth, wisdom, and spiritual growth.
+          Built to share light, conviction, and a deeper walk with God.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#about">Discover the Ministry</a>
+          <a class="button" href="#scripture">Read Scripture</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="scripture">
+      <div class="container">
+        <div class="quote-box">
+          <p>
+            “Holy, holy, holy, is the Lord of hosts: the whole earth is full of his glory.”
+          </p>
+          <span>Isaiah 6:3</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About</h2>
+        <p class="section-intro">
+          Hakadosh Ministry exists to point hearts toward God through truth,
+          reverence, wisdom, and spiritual reflection.
+        </p>
+
+        <div class="about-text">
+          <p>
+            This space can become your ministry’s home on the internet:
+            a place to share teachings, scripture, reflections, messages,
+            articles, media, and your vision.
+          </p>
+          <p>
+            For now, this is the foundation. From here, you can shape it with
+            your own mission, doctrine, design language, and spiritual message.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="teachings">
+      <div class="container">
+        <h2>Teachings</h2>
+        <p class="section-intro">
+          You can later replace these blocks with your real ministry topics,
+          sermons, studies, or featured themes.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Faith</h3>
+            <p>
+              Messages that strengthen conviction, trust, and perseverance.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Wisdom</h3>
+            <p>
+              Reflections to deepen discernment, maturity, and understanding.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Truth</h3>
+            <p>
+              Scripture-centered content for clarity, reverence, and direction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="section-intro">
+          When you are ready, you can replace this section with your official
+          ministry email, form, social channels, or prayer request page.
+        </p>
+
+        <div class="card contact-box">
+          <h3>Reach Out</h3>
+          <p>
+            Contact email coming soon.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Hakadosh Ministry. All rights reserved.
+    </div>
+  </footer>
 </body>
-
 </html>
